@@ -63,21 +63,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Course Registration Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <div class="container">
     <h2>Course Registration Form</h2>
 
-    <form id="regForm">
-        <label>Student Name:</label>
-        <input type="text" id="name" placeholder="Enter your name" required>
+    <form id="regForm" novalidate>
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" />
 
         <label>Select Subjects:</label>
-
         <div class="subject-list">
             <label><input type="checkbox" class="subject" value="1000"> Data Structures (₹1000)</label>
             <label><input type="checkbox" class="subject" value="1200"> Operating Systems (₹1200)</label>
@@ -90,18 +89,19 @@
             Total Registration Fee: <span id="total">₹0</span>
         </div>
 
+        <div id="error" class="error" aria-live="polite"></div>
+
         <button type="submit">Submit Registration</button>
     </form>
 
-    <!-- RESULT BOX BELOW FORM -->
-    <div id="result" class="result-box">
+    <!-- RESULT BOX BELOW FORM — hidden until submit -->
+    <div id="result" class="result-box hidden" aria-live="polite">
         <h3>Registration Summary</h3>
         <p><strong>Student Name:</strong> <span id="resName">-</span></p>
         <p><strong>Selected Subjects:</strong></p>
         <ul id="resSubjects"><li>-</li></ul>
         <p><strong>Total Fee:</strong> <span id="resTotal">₹0</span></p>
     </div>
-
 </div>
 
 <script src="script.js"></script>
